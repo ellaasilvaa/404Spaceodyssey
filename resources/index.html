@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Space Odyssey — Minimal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+  <div class="stage">
+    <canvas id="stars"></canvas>
+
+    <header class="topbar">
+      <nav>
+        <ul>
+          <li><a href="#monolith">Monolith</a></li>
+          <li><a href="#voyage">Voyage</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="hero" id="monolith" aria-labelledby="title">
+      <h1 id="title"><span class="wide">SPACE</span><span class="wide">ODYSSEY</span></h1>
+
+      <div class="scene">
+        <div class="monolith" role="img" aria-label="Monolith">
+          <div class="gloss"></div>
+        </div>
+
+        <div class="eye" id="eye" aria-hidden="true"></div>
+      </div>
+
+      <p class="subtitle">A minimalist, spatial UI experiment</p>
+    </main>
+
+    <section id="voyage" class="content">
+      <article>
+        <h2>Voyage</h2>
+        <p>Slow camera motion, strong geometry, and sparse typography create the atmosphere.</p>
+      </article>
+    </section>
+
+    <footer id="contact">
+      <small>Built locally — run via a static server.</small>
+    </footer>
+  </div>
+
+  <script src="../js/Index.js"></script>
+</body>
+</html>
