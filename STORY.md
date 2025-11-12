@@ -1,12 +1,4 @@
-# 📖 Historia y Concepto Narrativo: SOL 404
 
-## 🌍 El Contexto
-
-### Año 2099 - La Era de la Colonización Marciana
-
-Después de décadas de esfuerzo, la humanidad finalmente estableció una colonia permanente en Marte. La base **"Nueva Esperanza"** alberga a 500 colonos que trabajan en la terraformación del planeta rojo.
-
-Para navegar el vasto territorio marciano, se desarrolló el **Sistema de Navegación Digital de Marte** (MARS-01), una red de servidores que mantiene un mapa completo de cada sector explorado del planeta.
 
 ---
 
