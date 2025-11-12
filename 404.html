@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Perdido en el Espacio</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- Starfield background -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <!-- CRT screen effect overlay -->
+    <div class="crt-overlay"></div>
+
+    <div class="container">
+        <!-- Retro computer terminal aesthetic -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="btn-close"></span>
+                    <span class="btn-minimize"></span>
+                    <span class="btn-maximize"></span>
+                </div>
+                <div class="terminal-title">MARS_NAVIGATION_SYSTEM.exe</div>
+            </div>
+
+            <div class="terminal-body">
+                <!-- Glitch effect on 404 -->
+                <div class="glitch-wrapper">
+                    <h1 class="glitch" data-text="404">404</h1>
+                </div>
+
+                <div class="error-message">
+                    <p class="blink">► NAVIGATION ERROR DETECTED</p>
+                    <p class="typing-text">Mission to Mars interrupted... Wrong coordinates entered.</p>
+                </div>
+
+                <!-- ASCII Art Spaceship -->
+                <pre class="ascii-art">
+    .     *       ✦    .        *
+       .               .     .
+  *        ___
+       ___/   \___
+      /   '---'   \
+     '_____|_|_____'  
+         /_____\
+        |MARS-01|     *    .
+    *   ‾‾‾‾‾‾‾‾‾  
+  .        | |           .
+       *   | |
+           |_|      ✦
+                </pre>
+
+                <div class="message-box">
+                    <p>> MISSION LOG - SOL 404</p>
+                    <p>> Your Mars rover took a wrong turn in the digital desert.</p>
+                    <p>> This sector of our Martian database doesn't exist yet.</p>
+                    <p>> Let's recalibrate and return to Mission Control.</p>
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="button-group">
+                    <button class="retro-button" onclick="goHome()">
+                        <span class="button-glow"></span>
+                        ◄ RETURN TO MISSION CONTROL
+                    </button>
+                    <button class="retro-button secondary" onclick="randomPage()">
+                        <span class="button-glow"></span>
+                        🚀 EXPLORE MARS BASE
+                    </button>
+                </div>
+
+                <!-- Retro status bar -->
+                <div class="status-bar">
+                    <span id="current-time"></span>
+                    <span>OXYGEN: 98%</span>
+                    <span>FUEL: <span class="blink-slow">LOW</span></span>
+                    <span>SIGNAL: ▂▃▅▇</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating elements -->
+        <div class="floating-element astronaut" id="astronaut">🧑‍🚀</div>
+        <div class="floating-element satellite" id="satellite">🛸</div>
+    </div>
+
+    <!-- Scanline effect -->
+    <div class="scanline"></div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
