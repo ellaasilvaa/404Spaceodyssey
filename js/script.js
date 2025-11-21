@@ -6,10 +6,7 @@ const scoreDisplay = document.getElementById("scoreDisplay");
 const descText = document.getElementById("descText");
 const btnHome = document.getElementById("btnHome");
 
-// Sound effects
-const sndJump = document.getElementById("sndJump");
-const sndHit = document.getElementById("sndHit");
-const sndMars = document.getElementById("sndMars");
+
 
 // Game state
 let y = 40;             // player vertical position (px from bottom)
