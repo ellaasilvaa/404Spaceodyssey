@@ -16,9 +16,9 @@ body::before {
   pointer-events: none;
   background-image:
     radial-gradient(2px 2px at 20% 30%, #ffffff 0, transparent 60%),
-    radial-gradient(1px 1px at 70% 10%, #ffffff 0, transparent 60%),
+    radial-gradient(1px 1px at 70% 10?, #ffffff 0, transparent 60%),
     radial-gradient(1.5px 1.5px at 40% 80%, #ffffff 0, transparent 60%),
-    radial-gradient(1px 1px at 15% 70%, #ffffff 0, transparent 60%);
+    radial-gradient(1px 1px at 15% 70?, #ffffff 0, transparent 60%);
   opacity: 0.6;
   animation: stars 40s linear infinite;
 }
@@ -31,7 +31,8 @@ body::before {
 /* Title and subtitle */
 .title-box {
   text-align: center;
-  margin-top: 1.8rem;
+  margin-top: clamp(2.5rem, 10vh, 5rem);
+  padding-inline: 1rem;
 }
 
 .title-box h1 {
@@ -47,20 +48,53 @@ body::before {
   letter-spacing: 0.15em;
 }
 
-/* Score text */
+/* Score badge */
 .score {
+  margin: 1.5rem auto 0;
+  padding: 0.6rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 224, 255, 0.8);
+  background: radial-gradient(circle at top, rgba(0, 224, 255, 0.22), rgba(0, 5, 15, 0.95));
+  box-shadow:
+    0 0 10px rgba(0, 224, 255, 0.6),
+    0 0 30px rgba(0, 224, 255, 0.35);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-align: center;
-  margin-top: 1.2rem;
-  font-size: 0.8rem;
 }
 
-/* Game container (responsive height) */
+/* Pulsing effect near the goal */
+.score.almost {
+  animation: scorePulse 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes scorePulse {
+  from {
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 0 10px rgba(0, 224, 255, 0.6),
+      0 0 30px rgba(0, 224, 255, 0.35);
+  }
+  to {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow:
+      0 0 15px rgba(0, 224, 255, 0.9),
+      0 0 40px rgba(0, 224, 255, 0.6);
+  }
+}
+
+/* Game container */
 .game {
   position: relative;
-  width: 100%;
-  height: clamp(220px, 35vh, 340px);
-  overflow: hidden;
-  margin-top: 2rem;
+  width: min(640px, 100% - 2rem);
+  height: clamp(220px, 34vh, 320px);
+  overflow: visible;
+  margin: 1.6rem auto 0;
+  border-radius: 22px;
 }
 
 /* Rocket (player) */
@@ -73,7 +107,7 @@ body::before {
   filter: drop-shadow(0 0 6px rgba(0, 224, 255, 0.8));
 }
 
-/* Landing state on Mars */
+/* Landing animation */
 .player.landing {
   position: fixed;
   left: 50%;
@@ -85,25 +119,13 @@ body::before {
 }
 
 @keyframes rocketLanding {
-  0% {
-    top: -20vh;
-    transform: translateX(-50%) scale(1);
-  }
-  60% {
-    top: 50vh;
-    transform: translateX(-50%) scale(1.1);
-  }
-  80% {
-    top: 46vh;
-    transform: translateX(-50%) scale(1);
-  }
-  100% {
-    top: 50vh;
-    transform: translateX(-50%) scale(1);
-  }
+  0% { top: -20vh; transform: translateX(-50%) scale(1); }
+  60% { top: 50vh; transform: translateX(-50%) scale(1.1); }
+  80% { top: 46vh; transform: translateX(-50%) scale(1); }
+  100% { top: 50vh; transform: translateX(-50%) scale(1); }
 }
 
-/* Obstacles (asteroid/alien) */
+/* Obstacles */
 .obstacle {
   position: absolute;
   left: 100%;
@@ -111,11 +133,13 @@ body::before {
   font-size: clamp(2.1rem, 6.5vw, 3rem);
 }
 
-/* Info section (text + buttons) */
+/* Info section */
 .info {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem; /* SUBIDO */
   padding-inline: 1rem;
+  max-width: 640px;
+  margin-inline: auto;
 }
 
 .desc {
@@ -134,17 +158,26 @@ body::before {
 
 /* Buttons */
 .btn {
-  background: transparent;
+  background: rgba(0, 224, 255, 0.12);
   color: #00e0ff;
   border: 2px solid #00e0ff;
-  padding: 0.6rem 1rem;
-  font-size: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.75rem;
   cursor: pointer;
+  letter-spacing: 0.05em;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 224, 255, 0.35);
+  transition: background 0.2s ease,
+              color 0.2s ease,
+              transform 0.1s ease,
+              box-shadow 0.2s ease;
 }
 
 .btn:hover {
   background: #00e0ff;
   color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.9);
 }
 
 /* Mars background animation */
@@ -159,7 +192,6 @@ body.to-mars {
   100% { background: radial-gradient(circle at top, #ff7145, #4a0d00); }
 }
 
-/* Softer stars on Mars */
 body.to-mars::before {
   opacity: 0.3;
 }
@@ -176,6 +208,22 @@ body.to-mars::before {
 
   .btn {
     width: 100%;
-    max-width: 260px;
+    max-width: 280px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .title-box {
+    margin-top: clamp(3rem, 12vh, 6rem);
+  }
+
+  .info {
+    margin-top: 1.5rem; /* SUBIDO */
+  }
+
+  .desc {
+    font-size: 0.8rem;
   }
 }

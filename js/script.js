@@ -23,6 +23,19 @@ let alienIndex = Math.floor(Math.random() * 10);
 let alienUsed = false;
 
 /**
+ * Helper: update score UI and add/remove "almost" effect
+ */
+function updateScore() {
+  scoreDisplay.textContent = `Asteroids dodged: ${score} / 10`;
+
+  if (score >= 7 && score < 10) {
+    scoreDisplay.classList.add("almost");
+  } else {
+    scoreDisplay.classList.remove("almost");
+  }
+}
+
+/**
  * Trigger jump (keyboard or touch).
  */
 function jump() {
@@ -120,6 +133,7 @@ function moveObstacle() {
         sndHit.play();
       }
       descText.innerHTML = "You crashed into an obstacle. Try again.";
+      scoreDisplay.classList.remove("almost");
       return;
     }
 
@@ -127,7 +141,7 @@ function moveObstacle() {
     if (posX < -100) {
       clearInterval(interval);
       score++;
-      scoreDisplay.textContent = `Asteroids dodged: ${score} / 10`;
+      updateScore();
 
       if (score >= 10) {
         reachMars();
@@ -156,6 +170,7 @@ function reachMars() {
 
   obstacle.style.display = "none";
   player.classList.add("landing");
+  scoreDisplay.classList.remove("almost");
 }
 
 /**
@@ -171,6 +186,8 @@ restartBtn.addEventListener("click", () => {
 
   descText.textContent =
     "You are flying through an asteroid belt. Dodge the rocks (and the alien 👾) to escape the 404 error.";
+
+  scoreDisplay.className = "score"; // reset classes
   scoreDisplay.textContent = "Asteroids dodged: 0 / 10";
 
   document.body.classList.remove("to-mars");
