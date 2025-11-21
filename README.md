@@ -5,7 +5,7 @@ Custom 404 page built for the **“404s to Mars”** hackathon.
 When a user lands on a non-existent page, they are dropped into an **asteroid belt mini-game**:
 they control a small rocket 🚀, dodging asteroids (and one alien 👾) to reach **MARS-404**.
 
-Here's a link to the website: https://ellaasilvaa.github.io/404Spaceodyssey/404.html**.
+Here's a link to the website: https://ellaasilvaa.github.io/404Spaceodyssey/404.html
 ---
 
 ## Team
