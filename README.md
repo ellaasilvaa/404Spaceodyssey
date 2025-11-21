@@ -43,10 +43,6 @@ they control a small rocket 🚀, dodging asteroids (and one alien 👾) to reac
     - One random alien (👾) per run
   - Collision detection and game over state
   - Mars arrival after dodging 10 obstacles
-- Sound effects:
-  - Jump
-  - Collision
-  - Mars arrival
 - Landing animation: rocket lands vertically in the center of the screen
 - Clear navigation:
   - **Return to base** button → back to home
@@ -67,8 +63,5 @@ they control a small rocket 🚀, dodging asteroids (and one alien 👾) to reac
 │   └── styles.css    # Styling and animations
 ├── js/
 │   └── script.js     # Game logic (JS)
-├── assets/
-│   ├── jump.wav      # Jump sound
-│   ├── hit.wav       # Collision sound
-│   └── mars.wav      # Mars arrival sound
+
 └── README.md         # Project documentation
